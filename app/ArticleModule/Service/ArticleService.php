@@ -21,8 +21,14 @@ class ArticleService
     public function createArticle()
     {
         $article = new Article;
-        $article->setName('Name of article');
+
+        $article->translate('cs')->setName('Název článku');
+        $article->translate('en')->setName('Name of article');
+
+        $article->mergeNewTranslations();
+
         $this->entityManager->persist($article);
+
         $this->entityManager->flush();
     }
 

@@ -20,3 +20,12 @@ extensions:
     events: Kdyby\Events\DI\EventsExtension
     annotations: Kdyby\Annotations\DI\AnnotationsExtension
     doctrine: Kdyby\Doctrine\DI\OrmExtension
+    translatable: Zenify\DoctrineBehaviors\DI\TranslatableExtension
+    translation: Kdyby\Translation\DI\TranslationExtension
+
+translatable:
+    currentLocaleCallable: [@translation.default, getLocale]
+
+translation:
+    default: en
+    whitelist: [cs, en]

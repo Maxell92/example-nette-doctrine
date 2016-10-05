@@ -4,36 +4,24 @@ namespace ArticleModule\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Kdyby\Doctrine\Entities\Attributes\Identifier;
+use Knp\DoctrineBehaviors\Model\Translatable\Translatable;
+use Zenify\DoctrineBehaviors\Entities\Attributes\Translatable as ZenifyTranslatable;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="article")
+ *
+ * @method ArticleTranslation translate($lang='')
  */
 class Article
 {
     use Identifier;
+    use Translatable;
+    use ZenifyTranslatable;
 
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     * @var string
-     */
-    private $name;
-
-    /**
-     * @return string
-     */
-    public function getName()
+    public function getArticleName()
     {
-        return $this->name;
+        return $this->translate()->getName();
     }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
 }
 
