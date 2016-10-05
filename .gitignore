@@ -1,0 +1,9 @@
+vendor/*
+log/*
+temp/*
+
+.idea/
+.DS_Store
+!.gitkeep
+!.gitignore
+app/config/config.local.neon
